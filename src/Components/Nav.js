@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom"
+
 class Nav extends Component {
     constructor(props) {
         super(props);
@@ -7,6 +9,10 @@ class Nav extends Component {
          }
     }
     render() { 
+        const NavStyles = {
+            color: "white",
+            textDecoration:"none"
+        }
         return ( 
             <div>
             <nav>
@@ -14,11 +20,16 @@ class Nav extends Component {
                     FOOD RECIPE
                 </div>
                 <ul>
-                  <li>Home</li>
-               <li>Recipes {}</li>
+                 <Link style={NavStyles} to = '/'>
+                    <li>Home</li>
+                    </Link>
+                    <Link  style={NavStyles} to = '/App1'>
+                     <li>About</li>
+                    </Link>
                 </ul>
                   <div className="hide">
                     <li>+1-08478367</li>
+                    {/* {this.state.time.toLocaleDateString()} */}
                 </div>
             </nav>
         </div>

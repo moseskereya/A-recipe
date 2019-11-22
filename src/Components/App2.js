@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+
+import {Link} from  "react-router-dom"
 class App2 extends Component {
     constructor(props) {
         super(props);
@@ -6,12 +9,11 @@ class App2 extends Component {
         show:false
          }
     }
-    showdetails = () =>{
-        this.setState({
-            show:!this.state.show 
-        })
-    }
     render() { 
+        const MyStyles = {
+            textDecoration:"none",
+            color:"#171717"
+        }
         return ( 
             <div className="container">
             {this.props.recipe.map((recipe) => {
@@ -21,10 +23,15 @@ class App2 extends Component {
                      <img src={recipe.image_url} alt="recipes"/> 
                       <h5 className="title">{recipe.title}</h5>   
                        <p>Publisher: <span>{recipe.publisher}</span></p>
+
                         <button 
-                        className="details-btn" onClick={this.showdetails}>View More</button>
-                        {this.state.show && <span onClick={this.state.show}>{recipe.source_url.length < 15 ? `${recipe.source_url}` : `${recipe.source_url.substring(0, 20)}...`}</span> }
-                    
+                          className="details-btn">
+                            <Link style={MyStyles} to={{pathname: `/App2/${recipe.recipe_id}`,
+                                  state:recipe.title
+                                }}>
+                               View More
+                            </Link>
+                        </button>
                    </div>
             </div>
            )
