@@ -1,8 +1,7 @@
 import React from 'react';
 import Nav from "./Components/Nav"
-import Home from "./Home"
 import Data from "./Components/Data"
-import  { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import  { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import App2 from './Components/App2';
 import App1 from './Components/App1';
